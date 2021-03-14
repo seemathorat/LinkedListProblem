@@ -55,6 +55,26 @@ public class LinkedList<T> {
             tail = newNode;
         }
     }
+    public Node addAtmiddle(T data, int position){
+
+        Node<T> newnode = new Node<T>(data);
+        newnode.data = data;
+        Node<T> cur = head;
+        Node<T> prev = null;
+        int count=0;
+        while (count < position) {
+            prev = cur;
+            cur = cur.Next;
+            count++;
+        }
+        newnode.Next = cur;
+        if (prev != null) {
+            prev.Next = newnode;
+            return head;
+        }
+        return newnode;
+    }
+
 
 
 
@@ -87,9 +107,10 @@ public class LinkedList<T> {
 
         list.addNode(70);
 
-        list.addAtEnd(30);
-        list.addAtEnd(56);
-        list.addAtEnd(70);
+       // list.addAtEnd(30);
+       // list.addAtEnd(56);
+       // list.addAtEnd(70);
+        list.addAtmiddle(30,1);
         list.displayList();
 
 
