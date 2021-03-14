@@ -29,9 +29,25 @@ public class LinkedList<T> {
         tail=newNode;
 
     }
+    public void addAtStart(T data) {
+
+        Node<T> newNode = new Node<T>(data);
+
+        if(head == null) {
+            head = newNode;
+            tail = newNode;
+        }
+        else {
+            Node temp = head;
+            head = newNode;
+            head.Next = temp;
+        }
+    }
+
 
     public void displayList() {
         Node<T> current=head;
+
 
         if (head==null){
 
@@ -43,6 +59,8 @@ public class LinkedList<T> {
 
                 System.out.println(current.data + "");
                 current = current.Next;
+
+
             }
 
         }
@@ -53,8 +71,13 @@ public class LinkedList<T> {
 
         list.addNode(56);
         list.addNode(30);
+
         list.addNode(70);
+
+        list.addNode(30);
+        list.addNode(56);
         list.displayList();
+
 
     }
 
